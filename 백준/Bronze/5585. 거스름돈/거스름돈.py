@@ -1,21 +1,8 @@
-n = int(input())
-
-num = 1000-n
-
-oback = num // 500
-num = num%500
-back = num // 100
-num  = num % 100
-oship = num // 50
-num = num%50
-ship = num // 10
-num = num % 10
-oh = num // 5
-num = num % 5
-ill = num // 1
-
-cnt = 0
-
-cnt += oback + back + oship +ship+oh+ill
-
-print(cnt)
+#함축된 코드
+n = 1000 - int(input())
+coins = [500, 100, 50, 10, 5, 1]
+count = 0
+for coin in coins:
+    count += n//coin
+    n %= coin
+print(count)
