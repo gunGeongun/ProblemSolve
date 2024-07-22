@@ -31,25 +31,20 @@ public class Main {
         int bCount = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (!visited[i][j] && matrix[i][j] == 0) {
-                    int wcnt = bfs(i, j, 0);
-
-                    if (wcnt >= 1) {
+                if (!visited[i][j]) {
+                    if (matrix[i][j] == 0) {
+                        int wcnt = bfs(i, j, 0);
                         wCount += wcnt * wcnt;
+
                     }
-                }
-            }
-        }
-        visited = new boolean[n][m];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (!visited[i][j] && matrix[i][j] == 1) {
-                    int bcnt = bfs(i, j, 1);
-                    if (bcnt >= 1) {
+                    if (matrix[i][j] == 1) {
+                        int bcnt = bfs(i, j, 1);
                         bCount += bcnt * bcnt;
+
                     }
                 }
             }
+
         }
         System.out.println(wCount + " " + bCount);
     }
